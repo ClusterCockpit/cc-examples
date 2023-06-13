@@ -1,0 +1,243 @@
+{
+    "name": "meggie",
+    "metricConfig": [
+        {
+            "name": "cpu_load",
+            "unit": {
+                "base": "load"
+            },
+            "scope": "node",
+            "aggregation": "avg",
+            "timestep": 60,
+            "peak": 40,
+            "normal": 20,
+            "caution": 15,
+            "alert": 10
+        },
+        {
+            "name": "mem_used",
+            "unit": {
+                "base": "B",
+                "prefix": "G"
+            },
+            "scope": "node",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 64,
+            "normal": 20,
+            "caution": 40,
+            "alert": 55
+        },
+        {
+            "name": "flops_any",
+            "unit": {
+                "base": "Flops/s",
+                "prefix": "G"
+            },
+            "scope": "node",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 1536,
+            "normal": 200,
+            "caution": 40,
+            "alert": 4
+        },
+        {
+            "name": "flops_sp",
+            "unit": {
+                "base": "Flops/s",
+                "prefix": "G"
+            },
+            "scope": "node",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 1536,
+            "normal": 100,
+            "caution": 20,
+            "alert": 2
+        },
+        {
+            "name": "flops_dp",
+            "unit": {
+                "base": "Flops/s",
+                "prefix": "G"
+            },
+            "scope": "node",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 768,
+            "normal": 50,
+            "caution": 10,
+            "alert": 2
+        },
+        {
+            "name": "mem_bw",
+            "unit": {
+                "base": "B/s",
+                "prefix": "G"
+            },
+            "scope": "node",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 140,
+            "normal": 70,
+            "caution": 20,
+            "alert": 5
+        },
+        {
+            "name": "clock",
+            "unit": {
+                "base": "Hz",
+                "prefix": "M"
+            },
+            "scope": "node",
+            "aggregation": "avg",
+            "timestep": 60,
+            "peak": 3000,
+            "normal": 2400,
+            "caution": 1800,
+            "alert": 1200
+        },
+        {
+            "name": "cpu_power",
+            "unit": {
+                "base": "W"
+            },
+            "scope": "socket",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 80,
+            "normal": 30,
+            "caution": 10,
+            "alert": 5
+        },
+        {
+            "name": "mem_power",
+            "unit": {
+                "base": "W"
+            },
+            "scope": "socket",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 100,
+            "normal": 50,
+            "caution": 20,
+            "alert": 10
+        },
+        {
+            "name": "ipc",
+            "unit": {
+                "base": "IPC"
+            },
+            "scope": "node",
+            "aggregation": "avg",
+            "timestep": 60,
+            "peak": 4,
+            "normal": 2,
+            "caution": 1,
+            "alert": 0.5
+        },
+        {
+            "name": "vectorization_ratio",
+            "unit": {
+                "base": ""
+            },
+            "scope": "hwthread",
+            "aggregation": "avg",
+            "timestep": 60,
+            "peak": 100,
+            "normal": 60,
+            "caution": 40,
+            "alert": 10
+        },
+        {
+            "name": "nfs4_read",
+            "unit": {
+                "base": "B/s",
+                "prefix": "M"
+            },
+            "scope": "node",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 6,
+            "normal": 4,
+            "caution": 2,
+            "alert": 1
+        },
+        {
+            "name": "nfs4_write",
+            "unit": {
+                "base": "B/s",
+                "prefix": "M"
+            },
+            "scope": "node",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 6,
+            "normal": 4,
+            "caution": 2,
+            "alert": 1
+        },
+        {
+            "name": "nfs4_total",
+            "unit": {
+                "base": "B/s",
+                "prefix": "M"
+            },
+            "scope": "node",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 6,
+            "normal": 4,
+            "caution": 2,
+            "alert": 1
+        }
+    ],
+    "subClusters": [
+        {
+            "name": "main",
+            "nodes": "m[0101-0164,0201-0264,0301-0364,0401-0464,0601-0676,0701-0776,0801-0872,0901-0972,1001-1072,1101-1172]",
+            "processorType": "Intel Broadwell",
+            "socketsPerNode": 2,
+            "coresPerSocket": 10,
+            "threadsPerCore": 1,
+            "flopRateScalar": {
+                "unit": {
+                    "base": "F/s",
+                    "prefix": "G"
+                },
+                "value": 96
+            },
+            "flopRateSimd": {
+                "unit": {
+                    "base": "F/s",
+                    "prefix": "G"
+                },
+                "value": 1536
+            },
+            "memoryBandwidth": {
+                "unit": {
+                    "base": "B/s",
+                    "prefix": "G"
+                },
+                "value": 140
+            },
+            "topology": {
+                "node": [
+                    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+                ],
+                "socket": [
+                    [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ],
+                    [ 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ]
+                ],
+                "memoryDomain": [
+                    [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ],
+                    [ 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ]
+                ],
+                "core": [
+                    [ 0 ], [ 1 ], [ 2 ], [ 3 ], [ 4 ], [ 5 ], [ 6 ], [ 7 ], [ 8 ], [ 9 ], [ 10 ], [ 11 ], [ 12 ], [ 13 ], [ 14 ], [ 15 ], [ 16 ], [ 17 ], [ 18 ], [ 19 ]
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+  "nfs4stat" : {},
+  "memstat" : {
+    "node_stats": true
+  },
+  "cpustat" : {},
+  "loadavg" : {},
+  "lustrestat" : {
+    "send_all_metrics" : true,
+    "use_sudo": false,
+    "send_diff_values": true,
+    "send_derived_values": true,
+    "send_abs_values": false
+  },
+  "netstat" : {
+    "include_devices" : [
+      "enp1s0",
+      "enp22s0"
+    ],
+    "send_abs_values": true,
+    "send_derived_values": true
+  },
+  "diskstat" : {},
+  "iostat" : {},
+  "ibstat" : {
+    "send_abs_values": true,
+    "send_derived_values": true
+  },
+  "tempstat" : {
+    "tag_override" : {
+      "hwmon0" : {
+        "type" : "socket",
+        "type-id" : "0"
+      },
+      "hwmon1" : {
+        "type" : "socket",
+        "type-id" : "1"
+      }
+    }
+  },
+  "cpufreq_cpuinfo": {},
+  "nfsiostat": {}
+}

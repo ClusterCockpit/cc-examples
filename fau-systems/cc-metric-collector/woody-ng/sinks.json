@@ -1,0 +1,20 @@
+{
+    "nhrinflux": {
+        "type": "influxasync",
+        "host": "monitoring-test.nhr.uni-erlangen.de",
+        "port": "8086",
+        "organization": "ClusterCockpit",
+        "database": "woodyng",
+        "password": "XZY",
+        "ssl": true
+    },
+    "woodystore": {
+        "type": "http",
+        "url": "http://monitoring.nhr.fau.de:8082/api/write?cluster=woodyng",
+        "jwt": "XZY",
+        "meta_as_tags": [
+            "unit"
+        ],
+        "idle_connection_timeout": "60s"
+    }
+}

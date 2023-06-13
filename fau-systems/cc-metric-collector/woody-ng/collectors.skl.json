@@ -1,0 +1,147 @@
+{
+  "diskstat" : {},
+  "iostat" : {},
+  "cpustat": {},
+  "memstat" : {
+    "node_stats": true
+  },
+  "loadavg" : {},
+  "schedstat": {},
+  "netstat" : {
+      "include_devices" : [
+          "enp2s0f0",
+          "eno1",
+          "ens2f0"
+      ],
+      "send_abs_values" : true,
+      "send_derived_values" : true
+  },
+  "tempstat" : {},
+  "nfs4stat" : {},
+  "likwid": {
+    "force_overwrite" : true,
+    "invalid_to_zero" : true,
+    "access_mode" : "accessdaemon",
+    "accessdaemon_path" : "/apps/likwid/system/sbin",
+    "liblikwid_path": "/apps/likwid/system/lib/liblikwid.so",
+    "eventsets": [
+      {
+        "events": {
+          "FIXC0": "INSTR_RETIRED_ANY",
+          "FIXC1": "CPU_CLK_UNHALTED_CORE",
+          "FIXC2": "CPU_CLK_UNHALTED_REF",
+          "MBOX0C1": "DRAM_READS",
+          "MBOX0C2": "DRAM_WRITES",
+          "PMC0": "FP_ARITH_INST_RETIRED_128B_PACKED_DOUBLE",
+          "PMC1": "FP_ARITH_INST_RETIRED_SCALAR_DOUBLE",
+          "PMC2": "FP_ARITH_INST_RETIRED_256B_PACKED_DOUBLE",
+          "PWR0": "PWR_PKG_ENERGY",
+          "PWR3": "PWR_DRAM_ENERGY"
+        },
+        "metrics": [
+          {
+            "calc": "1E-6*(FIXC1/FIXC2)/inverseClock",
+            "name": "clock",
+            "unit": "MHz",
+            "publish": true,
+            "type": "hwthread"
+          },
+          {
+            "calc": "FIXC0/FIXC1",
+            "name": "ipc",
+            "publish": true,
+            "type": "hwthread"
+          },
+          {
+            "calc": "PWR0/time",
+            "name": "pwr_pkg",
+            "unit": "Watt",
+            "publish": true,
+            "type": "socket"
+          },
+          {
+            "calc": "PWR3/time",
+            "name": "pwr_dram",
+            "publish": true,
+            "unit": "Watt",
+            "type": "socket"
+          },
+          {
+            "calc": "1E-9*(PMC0*2.0+PMC1+PMC2*4.0)/time",
+            "name": "flops_dp",
+            "publish": true,
+            "unit": "GFlops/s",
+            "type": "hwthread"
+          },
+          {
+            "calc": "1E-9*(MBOX0C1+MBOX0C2)*64.0/time",
+            "name": "mem_bw",
+            "publish": true,
+            "unit": "GBytes/s",
+            "type": "socket"
+          },
+          {
+            "calc": "PMC0+PMC2",
+            "name": "dp_vec_ins",
+            "type": "hwthread",
+            "publish": false
+          },
+          {
+            "calc": "PMC0+PMC1+PMC2",
+            "name": "dp_fp_ins",
+            "type": "hwthread",
+            "publish": false
+          }
+        ]
+      },
+      {
+        "events": {
+          "FIXC0": "INSTR_RETIRED_ANY",
+          "FIXC1": "CPU_CLK_UNHALTED_CORE",
+          "FIXC2": "CPU_CLK_UNHALTED_REF",
+          "PMC0": "FP_ARITH_INST_RETIRED_128B_PACKED_SINGLE",
+          "PMC1": "FP_ARITH_INST_RETIRED_SCALAR_SINGLE",
+          "PMC2": "FP_ARITH_INST_RETIRED_256B_PACKED_SINGLE"
+        },
+        "metrics": [
+          {
+            "calc": "1E-9*(PMC0*4.0+PMC1+PMC2*8.0)/time",
+            "name": "flops_sp",
+            "publish": true,
+            "unit": "GFlops/s",
+            "type": "hwthread"
+          },
+          {
+            "calc": "PMC0+PMC2",
+            "name": "sp_vec_ins",
+            "type": "hwthread",
+            "publish": false
+          },
+          {
+            "calc": "PMC0+PMC1+PMC2",
+            "name": "sp_fp_ins",
+            "type": "hwthread",
+            "publish": false
+          }
+        ]
+      }
+    ],
+    "globalmetrics": [
+      {
+        "calc": "100*((sp_vec_ins+dp_vec_ins)/(sp_fp_ins+dp_fp_ins))",
+        "name": "vectorization_ratio",
+        "unit": "%",
+        "type": "hwthread",
+        "publish": true
+      },
+      {
+        "calc": "(flops_dp * 2) + flops_sp",
+        "name": "flops_any",
+        "type": "hwthread",
+        "unit": "GFlops/s",
+        "publish": true
+      }
+    ]
+  }
+
+}

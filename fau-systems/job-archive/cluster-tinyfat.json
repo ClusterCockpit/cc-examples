@@ -1,0 +1,466 @@
+{
+    "name": "tinyfat",
+    "metricConfig": [
+        {
+            "name": "cpu_load",
+            "unit": {
+                "base": ""
+            },
+            "scope": "node",
+            "aggregation": "avg",
+            "timestep": 60,
+            "peak": 128,
+            "normal": 64,
+            "caution": 60,
+            "alert": 20,
+            "subClusters": [
+                {
+                    "name": "broadwell_256gb",
+                    "peak": 24,
+                    "normal": 24,
+                    "caution": 12,
+                    "alert": 10
+                },
+                {
+                    "name": "broadwell_512gb",
+                    "peak": 56,
+                    "normal": 56,
+                    "caution": 28,
+                    "alert": 20
+                }
+            ]
+        },
+        {
+            "name": "cpu_user",
+            "unit": {
+                "base": ""
+            },
+            "scope": "hwthread",
+            "aggregation": "avg",
+            "timestep": 60,
+            "peak": 100,
+            "normal": 50,
+            "caution": 20,
+            "alert": 10
+        },
+        {
+            "name": "mem_used",
+            "unit": {
+                "base": "B",
+                "prefix": "G"
+            },
+            "scope": "node",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 512,
+            "normal": 256,
+            "caution": 480,
+            "alert": 500,
+            "subClusters": [
+                {
+                    "name": "broadwell_256gb",
+                    "peak": 256,
+                    "normal": 128,
+                    "caution": 200,
+                    "alert": 240
+                },
+                {
+                    "name": "broadwell_512gb",
+                    "peak": 512,
+                    "normal": 256,
+                    "caution": 480,
+                    "alert": 500
+                }
+            ]
+        },
+        {
+            "name": "flops_any",
+            "unit": {
+                "base": "Flops/s",
+                "prefix": "G"
+            },
+            "scope": "hwthread",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 2560,
+            "normal": 800,
+            "caution": 100,
+            "alert": 20,
+            "subClusters": [
+                {
+                    "name": "broadwell_256gb",
+                    "peak": 653,
+                    "normal": 200,
+                    "caution": 50,
+                    "alert": 10
+                },
+                {
+                    "name": "broadwell_512gb",
+                    "peak": 1075,
+                    "normal": 500,
+                    "caution": 80,
+                    "alert": 20
+                }
+            ]
+        },
+        {
+            "name": "flops_sp",
+            "unit": {
+                "base": "Flops/s",
+                "prefix": "G"
+            },
+            "scope": "hwthread",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 5600,
+            "normal": 1000,
+            "caution": 200,
+            "alert": 50,
+            "subClusters": [
+                {
+                    "name": "broadwell_256gb",
+                    "peak": 653,
+                    "normal": 200,
+                    "caution": 50,
+                    "alert": 10
+                },
+                {
+                    "name": "broadwell_512gb",
+                    "peak": 1075,
+                    "normal": 500,
+                    "caution": 80,
+                    "alert": 20
+                }
+            ]
+        },
+        {
+            "name": "flops_dp",
+            "unit": {
+                "base": "Flops/s",
+                "prefix": "G"
+            },
+            "scope": "hwthread",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 2300,
+            "normal": 500,
+            "caution": 100,
+            "alert": 50,
+            "subClusters": [
+                {
+                    "name": "broadwell_256gb",
+                    "peak": 325,
+                    "normal": 100,
+                    "caution": 25,
+                    "alert": 10
+                },
+                {
+                    "name": "broadwell_512gb",
+                    "peak": 500,
+                    "normal": 250,
+                    "caution": 40,
+                    "alert": 10
+                }
+            ]
+        },
+        {
+            "name": "mem_bw",
+            "unit": {
+                "base": "B/s",
+                "prefix": "G"
+            },
+            "scope": "socket",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 278,
+            "normal": 100,
+            "caution": 50,
+            "alert": 10,
+            "subClusters": [
+                {
+                    "name": "broadwell_256gb",
+                    "peak": 114,
+                    "normal": 50,
+                    "caution": 25,
+                    "alert": 10
+                },
+                {
+                    "name": "broadwell_512gb",
+                    "peak": 128,
+                    "normal": 50,
+                    "caution": 25,
+                    "alert": 10
+                }
+            ]
+        },
+        {
+            "name": "clock",
+            "unit": {
+                "base": "Hz",
+                "prefix": "M"
+            },
+            "scope": "hwthread",
+            "aggregation": "avg",
+            "timestep": 60,
+            "peak": 3000,
+            "normal": 2500,
+            "caution": 1800,
+            "alert": 1200,
+            "subClusters": [
+                {
+                    "name": "broadwell_256gb",
+                    "peak": 3800,
+                    "normal": 3400,
+                    "caution": 2000,
+                    "alert": 1200
+                },
+                {
+                    "name": "broadwell_512gb",
+                    "peak": 3000,
+                    "normal": 2400,
+                    "caution": 1800,
+                    "alert": 1200
+                }
+            ]
+        },
+        {
+            "name": "cpu_power",
+            "unit": {
+                "base": "W"
+            },
+            "scope": "socket",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 500,
+            "normal": 250,
+            "caution": 100,
+            "alert": 50
+        },
+        {
+            "name": "mem_power",
+            "unit": {
+                "base": "W"
+            },
+            "scope": "socket",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 100,
+            "normal": 50,
+            "caution": 20,
+            "alert": 10
+        },
+        {
+            "name": "ipc",
+            "unit": {
+                "base": "IPC"
+            },
+            "scope": "hwthread",
+            "aggregation": "avg",
+            "timestep": 60,
+            "peak": 4,
+            "normal": 2,
+            "caution": 1,
+            "alert": 0.5
+        },
+        {
+            "name": "vectorization_ratio",
+            "unit": {
+                "base": ""
+            },
+            "scope": "hwthread",
+            "aggregation": "avg",
+            "timestep": 60,
+            "peak": 100,
+            "normal": 60,
+            "caution": 40,
+            "alert": 10
+        },
+        {
+            "name": "nfs4_read",
+            "unit": {
+                "base": "B/s",
+                "prefix": "M"
+            },
+            "scope": "node",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 6,
+            "normal": 4,
+            "caution": 2,
+            "alert": 1
+        },
+        {
+            "name": "nfs4_write",
+            "unit": {
+                "base": "B/s",
+                "prefix": "M"
+            },
+            "scope": "node",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 6,
+            "normal": 4,
+            "caution": 2,
+            "alert": 1
+        },
+        {
+            "name": "nfs4_total",
+            "unit": {
+                "base": "B/s",
+                "prefix": "M"
+            },
+            "scope": "node",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 6,
+            "normal": 4,
+            "caution": 2,
+            "alert": 1
+        }
+    ],
+    "subClusters": [
+        {
+            "name": "broadwell_512gb",
+            "nodes": "tf040,tf041,tf042",
+            "processorType": "Intel(R) Xeon(R) CPU E5-2680 v4 @ 2.40GHz",
+            "socketsPerNode": 2,
+            "coresPerSocket": 14,
+            "threadsPerCore": 2,
+            "flopRateScalar": {
+                "unit": {
+                    "base": "F/s",
+                    "prefix": "G"
+                },
+                "value": 158
+            },
+            "flopRateSimd": {
+                "unit": {
+                    "base": "F/s",
+                    "prefix": "G"
+                },
+                "value": 1236
+            },
+            "memoryBandwidth": {
+                "unit": {
+                    "base": "B/s",
+                    "prefix": "G"
+                },
+                "value": 128
+            },
+            "topology": {
+                "node": [
+                    0, 28, 1, 29, 2, 30, 3, 31, 4, 32, 5, 33, 6, 34, 7, 35, 8, 36, 9, 37, 10, 38, 11, 39, 12, 40, 13, 41, 14, 42, 15, 43, 16, 44, 17, 45, 18, 46, 19, 47, 20, 48, 21, 49, 22, 50, 23, 51, 24, 52, 25, 53, 26, 54, 27, 55
+                ],
+                "socket": [
+                    [ 0, 28, 1, 29, 2, 30, 3, 31, 4, 32, 5, 33, 6, 34, 7, 35, 8, 36, 9, 37, 10, 38, 11, 39, 12, 40, 13, 41 ],
+                    [ 14, 42, 15, 43, 16, 44, 17, 45, 18, 46, 19, 47, 20, 48, 21, 49, 22, 50, 23, 51, 24, 52, 25, 53, 26, 54, 27, 55 ]
+                ],
+                "memoryDomain": [
+                    [ 0, 28, 1, 29, 2, 30, 3, 31, 4, 32, 5, 33, 6, 34 ],
+                    [ 7, 35, 8, 36, 9, 37, 10, 38, 11, 39, 12, 40, 13, 41 ],
+                    [ 14, 42, 15, 43, 16, 44, 17, 45, 18, 46, 19, 47, 20, 48 ],
+                    [ 21, 49, 22, 50, 23, 51, 24, 52, 25, 53, 26, 54, 27, 55 ]
+                ],
+                "core": [
+                    [ 0, 28 ], [ 1, 29 ], [ 2, 30 ], [ 3, 31 ], [ 4, 32 ], [ 5, 33 ], [ 6, 34 ], [ 7, 35 ], [ 8, 36 ], [ 9, 37 ], [ 10, 38 ], [ 11, 39 ], [ 12, 40 ], [ 13, 41 ], [ 14, 42 ], [ 15, 43 ], [ 16, 44 ], [ 17, 45 ], [ 18, 46 ], [ 19, 47 ], [ 20, 48 ], [ 21, 49 ], [ 22, 50 ], [ 23, 51 ], [ 24, 52 ], [ 25, 53 ], [ 26, 54 ], [ 27, 55 ]
+                ]
+            }
+        },
+        {
+            "name": "broadwell_256gb",
+            "nodes": "tf0[50-57]",
+            "processorType": "Intel(R) Xeon(R) CPU E5-2643 v4 @ 3.40GHz",
+            "socketsPerNode": 2,
+            "coresPerSocket": 6,
+            "threadsPerCore": 2,
+            "flopRateScalar": {
+                "unit": {
+                    "base": "F/s",
+                    "prefix": "G"
+                },
+                "value": 85
+            },
+            "flopRateSimd": {
+                "unit": {
+                    "base": "F/s",
+                    "prefix": "G"
+                },
+                "value": 672
+            },
+            "memoryBandwidth": {
+                "unit": {
+                    "base": "B/s",
+                    "prefix": "G"
+                },
+                "value": 114
+            },
+            "topology": {
+                "node": [
+                    0, 12, 1, 13, 2, 14, 3, 15, 4, 16, 5, 17, 6, 18, 7, 19, 8, 20, 9, 21, 10, 22, 11, 23
+                ],
+                "socket": [
+                    [ 0, 12, 1, 13, 2, 14, 3, 15, 4, 16, 5, 17 ],
+                    [ 6, 18, 7, 19, 8, 20, 9, 21, 10, 22, 11, 23 ]
+                ],
+                "memoryDomain": [
+                    [ 0, 12, 1, 13, 2, 14, 3, 15, 4, 16, 5, 17 ],
+                    [ 6, 18, 7, 19, 8, 20, 9, 21, 10, 22, 11, 23 ]
+                ],
+                "core": [
+                    [ 0, 12 ], [ 1, 13 ], [ 2, 14 ], [ 3, 15 ], [ 4, 16 ], [ 5, 17 ], [ 6, 18 ], [ 7, 19 ], [ 8, 20 ], [ 9, 21 ], [ 10, 22 ], [ 11, 23 ]
+                ]
+            }
+        },
+        {
+            "name": "rome_512gb",
+            "nodes": "tf0[60-95]",
+            "processorType": "AMD EPYC 7502 32-Core Processor                ",
+            "socketsPerNode": 2,
+            "coresPerSocket": 32,
+            "threadsPerCore": 2,
+            "flopRateScalar": {
+                "unit": {
+                    "base": "F/s",
+                    "prefix": "G"
+                },
+                "value": 553
+            },
+            "flopRateSimd": {
+                "unit": {
+                    "base": "F/s",
+                    "prefix": "G"
+                },
+                "value": 3198
+            },
+            "memoryBandwidth": {
+                "unit": {
+                    "base": "B/s",
+                    "prefix": "G"
+                },
+                "value": 278
+            },
+            "topology": {
+                "node": [
+                    0, 64, 1, 65, 2, 66, 3, 67, 4, 68, 5, 69, 6, 70, 7, 71, 8, 72, 9, 73, 10, 74, 11, 75, 12, 76, 13, 77, 14, 78, 15, 79, 16, 80, 17, 81, 18, 82, 19, 83, 20, 84, 21, 85, 22, 86, 23, 87, 24, 88, 25, 89, 26, 90, 27, 91, 28, 92, 29, 93, 30, 94, 31, 95, 32, 96, 33, 97, 34, 98, 35, 99, 36, 100, 37, 101, 38, 102, 39, 103, 40, 104, 41, 105, 42, 106, 43, 107, 44, 108, 45, 109, 46, 110, 47, 111, 48, 112, 49, 113, 50, 114, 51, 115, 52, 116, 53, 117, 54, 118, 55, 119, 56, 120, 57, 121, 58, 122, 59, 123, 60, 124, 61, 125, 62, 126, 63, 127
+                ],
+                "socket": [
+                    [ 0, 64, 1, 65, 2, 66, 3, 67, 4, 68, 5, 69, 6, 70, 7, 71, 8, 72, 9, 73, 10, 74, 11, 75, 12, 76, 13, 77, 14, 78, 15, 79, 16, 80, 17, 81, 18, 82, 19, 83, 20, 84, 21, 85, 22, 86, 23, 87, 24, 88, 25, 89, 26, 90, 27, 91, 28, 92, 29, 93, 30, 94, 31, 95 ],
+                    [ 32, 96, 33, 97, 34, 98, 35, 99, 36, 100, 37, 101, 38, 102, 39, 103, 40, 104, 41, 105, 42, 106, 43, 107, 44, 108, 45, 109, 46, 110, 47, 111, 48, 112, 49, 113, 50, 114, 51, 115, 52, 116, 53, 117, 54, 118, 55, 119, 56, 120, 57, 121, 58, 122, 59, 123, 60, 124, 61, 125, 62, 126, 63, 127 ]
+                ],
+                "memoryDomain": [
+                    [ 0, 64, 1, 65, 2, 66, 3, 67, 4, 68, 5, 69, 6, 70, 7, 71 ],
+                    [ 8, 72, 9, 73, 10, 74, 11, 75, 12, 76, 13, 77, 14, 78, 15, 79 ],
+                    [ 16, 80, 17, 81, 18, 82, 19, 83, 20, 84, 21, 85, 22, 86, 23, 87 ],
+                    [ 24, 88, 25, 89, 26, 90, 27, 91, 28, 92, 29, 93, 30, 94, 31, 95 ],
+                    [ 32, 96, 33, 97, 34, 98, 35, 99, 36, 100, 37, 101, 38, 102, 39, 103 ],
+                    [ 40, 104, 41, 105, 42, 106, 43, 107, 44, 108, 45, 109, 46, 110, 47, 111 ],
+                    [ 48, 112, 49, 113, 50, 114, 51, 115, 52, 116, 53, 117, 54, 118, 55, 119 ],
+                    [ 56, 120, 57, 121, 58, 122, 59, 123, 60, 124, 61, 125, 62, 126, 63, 127 ]
+                ],
+                "core": [
+                    [ 0, 64 ], [ 1, 65 ], [ 2, 66 ], [ 3, 67 ], [ 4, 68 ], [ 5, 69 ], [ 6, 70 ], [ 7, 71 ], [ 8, 72 ], [ 9, 73 ], [ 10, 74 ], [ 11, 75 ], [ 12, 76 ], [ 13, 77 ], [ 14, 78 ], [ 15, 79 ], [ 16, 80 ], [ 17, 81 ], [ 18, 82 ], [ 19, 83 ], [ 20, 84 ], [ 21, 85 ], [ 22, 86 ], [ 23, 87 ], [ 24, 88 ], [ 25, 89 ], [ 26, 90 ], [ 27, 91 ], [ 28, 92 ], [ 29, 93 ], [ 30, 94 ], [ 31, 95 ], [ 32, 96 ], [ 33, 97 ], [ 34, 98 ], [ 35, 99 ], [ 36, 100 ], [ 37, 101 ], [ 38, 102 ], [ 39, 103 ], [ 40, 104 ], [ 41, 105 ], [ 42, 106 ], [ 43, 107 ], [ 44, 108 ], [ 45, 109 ], [ 46, 110 ], [ 47, 111 ], [ 48, 112 ], [ 49, 113 ], [ 50, 114 ], [ 51, 115 ], [ 52, 116 ], [ 53, 117 ], [ 54, 118 ], [ 55, 119 ], [ 56, 120 ], [ 57, 121 ], [ 58, 122 ], [ 59, 123 ], [ 60, 124 ], [ 61, 125 ], [ 62, 126 ], [ 63, 127 ]
+                ]
+            }
+        }
+    ]
+}

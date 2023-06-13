@@ -1,0 +1,8 @@
+{
+  "sinks": "/home/hpc/unrz/unrz139/Work/cc-metric-collector/configs/fritz.spr2/sinks2.json",
+  "collectors" : "/home/hpc/unrz/unrz139/Work/cc-metric-collector/configs/fritz.spr2/collectors.json",
+  "receivers" : "/home/hpc/unrz/unrz139/Work/cc-metric-collector/configs/fritz.spr2/receivers.json",
+  "router" : "/home/hpc/unrz/unrz139/Work/cc-metric-collector/configs/fritz.spr2/router.json",
+  "interval": "60s",
+  "duration": "10s"
+}

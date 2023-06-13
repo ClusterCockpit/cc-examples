@@ -1,0 +1,415 @@
+{
+    "name": "woody",
+    "metricConfig": [
+        {
+            "name": "cpu_load",
+            "unit": {
+                "base": ""
+            },
+            "scope": "node",
+            "aggregation": "avg",
+            "timestep": 60,
+            "peak": 4,
+            "normal": 4,
+            "caution": 4,
+            "alert": 1,
+            "subClusters": [
+                {
+                    "name": "icelake",
+                    "peak": 32,
+                    "normal": 32,
+                    "caution": 30,
+                    "alert": 10
+                }
+            ]
+        },
+        {
+            "name": "cpu_user",
+            "unit": {
+                "base": ""
+            },
+            "scope": "hwthread",
+            "aggregation": "avg",
+            "timestep": 60,
+            "peak": 100,
+            "normal": 50,
+            "caution": 20,
+            "alert": 10
+        },
+        {
+            "name": "ipc",
+            "unit": {
+                "base": "IPC"
+            },
+            "scope": "node",
+            "aggregation": "avg",
+            "timestep": 60,
+            "peak": 4,
+            "normal": 2,
+            "caution": 1,
+            "alert": 0.25
+        },
+        {
+            "name": "mem_used",
+            "unit": {
+                "base": "B",
+                "prefix": "G"
+            },
+            "scope": "node",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 32,
+            "normal": 16,
+            "caution": 28,
+            "alert": 30,
+            "subClusters": [
+                {
+                    "name": "icelake",
+                    "peak": 256,
+                    "normal": 128,
+                    "caution": 200,
+                    "alert": 240
+                }
+            ]
+        },
+        {
+            "name": "flops_any",
+            "unit": {
+                "base": "Flops/s",
+                "prefix": "G"
+            },
+            "scope": "hwthread",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 112,
+            "normal": 50,
+            "caution": 20,
+            "alert": 10,
+            "subClusters": [
+                {
+                    "name": "icelake",
+                    "peak": 2970,
+                    "normal": 1000,
+                    "caution": 100,
+                    "alert": 50
+                }
+            ]
+        },
+        {
+            "name": "flops_dp",
+            "unit": {
+                "base": "Flops/s",
+                "prefix": "G"
+            },
+            "scope": "hwthread",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 56,
+            "normal": 30,
+            "caution": 15,
+            "alert": 5,
+            "subClusters": [
+                {
+                    "name": "icelake",
+                    "peak": 1450,
+                    "normal": 700,
+                    "caution": 100,
+                    "alert": 50
+                }
+            ]
+        },
+        {
+            "name": "flops_sp",
+            "unit": {
+                "base": "Flops/s",
+                "prefix": "G"
+            },
+            "scope": "hwthread",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 112,
+            "normal": 50,
+            "caution": 20,
+            "alert": 10,
+            "subClusters": [
+                {
+                    "name": "icelake",
+                    "peak": 2970,
+                    "normal": 1000,
+                    "caution": 100,
+                    "alert": 50
+                }
+            ]
+        },
+        {
+            "name": "mem_bw",
+            "unit": {
+                "base": "B/s",
+                "prefix": "G"
+            },
+            "scope": "socket",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 24,
+            "normal": 10,
+            "caution": 5,
+            "alert": 2,
+            "subClusters": [
+                {
+                    "name": "icelake",
+                    "peak": 350,
+                    "normal": 100,
+                    "caution": 50,
+                    "alert": 20
+                }
+            ]
+        },
+        {
+            "name": "clock",
+            "unit": {
+                "base": "Hz",
+                "prefix": "M"
+            },
+            "scope": "hwthread",
+            "aggregation": "avg",
+            "timestep": 60,
+            "peak": 3000,
+            "normal": 2000,
+            "caution": 1500,
+            "alert": 1200
+        },
+        {
+            "name": "vectorization_ratio",
+            "unit": {
+                "base": ""
+            },
+            "scope": "hwthread",
+            "aggregation": "avg",
+            "timestep": 60,
+            "peak": 100,
+            "normal": 60,
+            "caution": 40,
+            "alert": 10
+        },
+        {
+            "name": "nfs4_read",
+            "unit": {
+                "base": "B/s",
+                "prefix": "M"
+            },
+            "scope": "node",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 6,
+            "normal": 4,
+            "caution": 2,
+            "alert": 1
+        },
+        {
+            "name": "nfs4_write",
+            "unit": {
+                "base": "B/s",
+                "prefix": "M"
+            },
+            "scope": "node",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 6,
+            "normal": 4,
+            "caution": 2,
+            "alert": 1
+        },
+        {
+            "name": "nfs4_total",
+            "unit": {
+                "base": "B/s",
+                "prefix": "M"
+            },
+            "scope": "node",
+            "aggregation": "sum",
+            "timestep": 60,
+            "peak": 6,
+            "normal": 4,
+            "caution": 2,
+            "alert": 1
+        }
+    ],
+    "subClusters": [
+        {
+            "name": "haswell",
+            "nodes": "w11[27-45,49-63,69-72]",
+            "processorType": "Intel Xeon E3-1240 v3",
+            "socketsPerNode": 1,
+            "coresPerSocket": 4,
+            "threadsPerCore": 1,
+            "flopRateScalar": {
+                "unit": {
+                    "base": "F/s",
+                    "prefix": "G"
+                },
+                "value": 14
+            },
+            "flopRateSimd": {
+                "unit": {
+                    "base": "F/s",
+                    "prefix": "G"
+                },
+                "value": 112
+            },
+            "memoryBandwidth": {
+                "unit": {
+                    "base": "B/s",
+                    "prefix": "G"
+                },
+                "value": 24
+            },
+            "topology": {
+                "node": [
+                    0, 1, 2, 3
+                ],
+                "socket": [
+                    [ 0, 1, 2, 3 ]
+                ],
+                "memoryDomain": [
+                    [ 0, 1, 2, 3 ]
+                ],
+                "core": [
+                    [ 0 ], [ 1 ], [ 2 ], [ 3 ]
+                ]
+            }
+        },
+        {
+            "name": "skylake",
+            "nodes": "w12[01-08],w13[01-31,33-56]",
+            "processorType": "Intel Xeon E3-1240 v5 ",
+            "socketsPerNode": 1,
+            "coresPerSocket": 4,
+            "threadsPerCore": 1,
+            "flopRateScalar": {
+                "unit": {
+                    "base": "F/s",
+                    "prefix": "G"
+                },
+                "value": 14
+            },
+            "flopRateSimd": {
+                "unit": {
+                    "base": "F/s",
+                    "prefix": "G"
+                },
+                "value": 112
+            },
+            "memoryBandwidth": {
+                "unit": {
+                    "base": "B/s",
+                    "prefix": "G"
+                },
+                "value": 24
+            },
+            "topology": {
+                "node": [
+                    0, 1, 2, 3
+                ],
+                "socket": [
+                    [ 0, 1, 2, 3 ]
+                ],
+                "memoryDomain": [
+                    [ 0, 1, 2, 3 ]
+                ],
+                "core": [
+                    [ 0 ], [ 1 ], [ 2 ], [ 3 ]
+                ]
+            }
+        },
+        {
+            "name": "kabylake",
+            "nodes": "w14[01-56],w15[01-05,07-56]",
+            "processorType": "Intel Xeon E3-1240 v6",
+            "socketsPerNode": 1,
+            "coresPerSocket": 4,
+            "threadsPerCore": 1,
+            "flopRateScalar": {
+                "unit": {
+                    "base": "F/s",
+                    "prefix": "G"
+                },
+                "value": 14
+            },
+            "flopRateSimd": {
+                "unit": {
+                    "base": "F/s",
+                    "prefix": "G"
+                },
+                "value": 112
+            },
+            "memoryBandwidth": {
+                "unit": {
+                    "base": "B/s",
+                    "prefix": "G"
+                },
+                "value": 24
+            },
+            "topology": {
+                "node": [
+                    0, 1, 2, 3
+                ],
+                "socket": [
+                    [ 0, 1, 2, 3 ]
+                ],
+                "memoryDomain": [
+                    [ 0, 1, 2, 3 ]
+                ],
+                "core": [
+                    [ 0 ], [ 1 ], [ 2 ], [ 3 ]
+                ]
+            }
+        },
+        {
+            "name": "icelake",
+            "nodes": "w22[01-35],w23[01-35]",
+            "processorType": "Intel Xeon Gold 6326",
+            "socketsPerNode": 2,
+            "coresPerSocket": 16,
+            "threadsPerCore": 1,
+            "flopRateScalar": {
+                "unit": {
+                    "base": "F/s",
+                    "prefix": "G"
+                },
+                "value": 432
+            },
+            "flopRateSimd": {
+                "unit": {
+                    "base": "F/s",
+                    "prefix": "G"
+                },
+                "value": 9216
+            },
+            "memoryBandwidth": {
+                "unit": {
+                    "base": "B/s",
+                    "prefix": "G"
+                },
+                "value": 350
+            },
+            "topology": {
+                "node": [
+                    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71
+                ],
+                "socket": [
+                    [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35 ],
+                    [ 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71 ]
+                ],
+                "memoryDomain": [
+                    [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ],
+                    [ 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35 ],
+                    [ 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53 ],
+                    [ 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71 ]
+                ],
+                "core": [
+                    [ 0 ], [ 1 ], [ 2 ], [ 3 ], [ 4 ], [ 5 ], [ 6 ], [ 7 ], [ 8 ], [ 9 ], [ 10 ], [ 11 ], [ 12 ], [ 13 ], [ 14 ], [ 15 ], [ 16 ], [ 17 ], [ 18 ], [ 19 ], [ 20 ], [ 21 ], [ 22 ], [ 23 ], [ 24 ], [ 25 ], [ 26 ], [ 27 ], [ 28 ], [ 29 ], [ 30 ], [ 31 ], [ 32 ], [ 33 ], [ 34 ], [ 35 ], [ 36 ], [ 37 ], [ 38 ], [ 39 ], [ 40 ], [ 41 ], [ 42 ], [ 43 ], [ 44 ], [ 45 ], [ 46 ], [ 47 ], [ 48 ], [ 49 ], [ 50 ], [ 51 ], [ 52 ], [ 53 ], [ 54 ], [ 55 ], [ 56 ], [ 57 ], [ 58 ], [ 59 ], [ 60 ], [ 61 ], [ 62 ], [ 63 ], [ 64 ], [ 65 ], [ 66 ], [ 67 ], [ 68 ], [ 69 ], [ 70 ], [ 71 ]
+                ]
+            }
+        }
+    ]
+}

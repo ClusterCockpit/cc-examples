@@ -1,0 +1,32 @@
+{
+    "fritzganglia": {
+        "type": "libganglia",
+        "gmond_config": "/etc/ganglia/gmond.conf",
+        "libganglia_path": "libganglia.so.0",
+        "add_ganglia_group": true
+    },
+    "nhrinflux": {
+        "type": "influxasync",
+        "host": "monitoring-test.nhr.uni-erlangen.de",
+        "port": "8086",
+        "organization": "ClusterCockpit",
+        "database": "fritz_neu",
+        "password": "XZY",
+        "ssl": true,
+        "meta_as_tags": [
+            "unit"
+        ]
+    },
+    "fritzstore": {
+        "type": "http",
+        "url": "http://monitoring.nhr.fau.de:8082/api/write?cluster=fritz",
+        "jwt": "XZY",
+        "meta_as_tags": [
+            "unit"
+        ],
+        "idle_connection_timeout": "60s",
+        "flush_delay": "2s",
+        "max_retries": 1,
+        "timeout": "10s"
+    }
+}

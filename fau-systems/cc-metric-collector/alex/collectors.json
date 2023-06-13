@@ -1,0 +1,145 @@
+{
+  "nfs4stat" : {},
+  "memstat" : {
+    "numa_stats": true,
+    "node_stats": true
+  },
+  "cpustat" : {},
+  "loadavg" : {},
+  "schedstat": {},
+  "nvidia" : {
+    "use_pci_info_as_type_id": true
+  },
+  "lustrestat" : {
+    "send_all_metrics" : true,
+    "use_sudo": false,
+    "send_diff_values": true,
+    "send_derived_values": true,
+    "send_abs_values": false
+  },
+  "netstat" : {
+    "include_devices" : [
+      "enp1s0",
+      "enp70s0f0",
+      "enp195s0f0"
+    ],
+    "send_abs_values": true,
+    "send_derived_values": true
+  },
+  "diskstat" : {},
+  "iostat" : {},
+  "ibstat" : {
+    "send_abs_values": true,
+    "send_derived_values": true
+  },
+  "ipmistat" : {
+    "send_abs_values": true,
+    "send_derived_values": true
+  },
+  "tempstat" : {
+    "tag_override" : {
+      "hwmon0" : {
+        "type" : "socket",
+        "type-id" : "0"
+      },
+      "hwmon1" : {
+        "type" : "socket",
+        "type-id" : "1"
+      }
+    }
+  },
+  "likwid": {
+    "force_overwrite" : true,
+    "invalid_to_zero" : true,
+    "access_mode" : "accessdaemon",
+    "accessdaemon_path" : "/apps/likwid/system/sbin",
+    "liblikwid_path": "/apps/likwid/system/lib/liblikwid.so",
+    "eventsets": [
+      {
+        "events": {
+          "FIXC1": "ACTUAL_CPU_CLOCK",
+          "FIXC2": "MAX_CPU_CLOCK",
+          "PMC0": "RETIRED_INSTRUCTIONS",
+          "PMC1": "CPU_CLOCKS_UNHALTED",
+          "PMC2": "RETIRED_SSE_AVX_FLOPS_ALL",
+          "PMC3": "MERGE",
+          "DFC0": "DRAM_CHANNEL_0",
+          "DFC1": "DRAM_CHANNEL_1",
+          "DFC2": "DRAM_CHANNEL_2",
+          "DFC3": "DRAM_CHANNEL_3"
+        },
+        "metrics": [
+          {
+            "name": "ipc",
+            "calc": "PMC0/PMC1",
+            "type": "hwthread",
+            "publish": true
+          },
+          {
+            "name": "flops_any",
+            "calc": "1E-9*PMC2/time",
+            "unit": "GFlops/s",
+            "type": "hwthread",
+            "publish": true
+          },
+          {
+            "name": "clock",
+            "calc": "1E-6*(FIXC1/FIXC2)/inverseClock",
+            "type": "hwthread",
+            "unit": "MHz",
+            "publish": true
+          },
+          {
+            "name": "mem1",
+            "calc": "1E-9*(DFC0+DFC1+DFC2+DFC3)*64.0/time",
+            "unit": "Gbyte/s",
+            "type": "socket",
+            "publish": false
+          }
+        ]
+      },
+      {
+        "events": {
+          "DFC0": "DRAM_CHANNEL_4",
+          "DFC1": "DRAM_CHANNEL_5",
+          "DFC2": "DRAM_CHANNEL_6",
+          "DFC3": "DRAM_CHANNEL_7",
+          "PWR0": "RAPL_CORE_ENERGY",
+          "PWR1": "RAPL_PKG_ENERGY"
+        },
+        "metrics": [
+          {
+            "name": "core_power",
+            "calc": "PWR0/time",
+            "unit": "Watt",
+            "type": "hwthread",
+            "publish": true
+          },
+          {
+            "name": "cpu_power",
+            "calc": "PWR1/time",
+            "type": "socket",
+            "unit": "Watt",
+            "publish": true
+          },
+          {
+            "name": "mem2",
+            "calc": "1E-9*(DFC0+DFC1+DFC2+DFC3)*64.0/time",
+            "unit": "Gbyte/s",
+            "type": "socket",
+            "publish": false
+          }
+        ]
+      }
+    ],
+    "globalmetrics": [
+      {
+        "name": "mem_bw",
+        "calc": "mem1+mem2",
+        "type": "socket",
+        "unit": "Gbyte/s",
+        "publish": true
+      }
+    ]
+  }
+}

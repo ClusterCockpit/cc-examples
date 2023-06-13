@@ -1,0 +1,19 @@
+[Unit]
+Description=ClusterCockpit In-Memory Timeseries Database for Fritz (cc-metric-store)
+Documentation=https://github.com/ClusterCockpit/cc-metric-store
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=clustercockpit
+Group=clustercockpit
+Restart=on-failure
+RestartSec=30
+TimeoutStopSec=100
+WorkingDirectory=/opt/monitoring/cc-metric-store/fritz
+ExecStart=/opt/monitoring/cc-metric-store/repo/cc-metric-store --config ./config.json
+LimitNOFILE=500000
+
+[Install]
+WantedBy=multi-user.target

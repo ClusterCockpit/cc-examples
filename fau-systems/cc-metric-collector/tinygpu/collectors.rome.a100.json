@@ -1,0 +1,103 @@
+{
+  "nfs4stat" : {},
+  "memstat" : {
+    "numa_stats": true,
+    "node_stats": true
+  },
+  "cpustat" : {},
+  "loadavg" : {},
+  "schedstat": {},
+  "netstat" : {
+    "include_devices" : [
+      "eth0"
+    ],
+    "send_abs_values": true,
+    "send_derived_values": true
+  },
+  "diskstat" : {},
+  "iostat" : {},
+  "tempstat" : {
+    "tag_override" : {
+      "hwmon0" : {
+        "type" : "socket",
+        "type-id" : "0"
+      },
+      "hwmon1" : {
+        "type" : "socket",
+        "type-id" : "1"
+      }
+    }
+  },
+  "nvidia" : {
+      "use_pci_info_as_type_id": true,
+      "process_mig_devices": true
+  },
+  "likwid": {
+    "force_overwrite" : true,
+    "invalid_to_zero" : true,
+    "access_mode" : "accessdaemon",
+    "accessdaemon_path" : "/apps/likwid/system/sbin",
+    "liblikwid_path": "/apps/likwid/system/lib/liblikwid.so",
+    "eventsets": [
+      {
+        "events": {
+          "FIXC1": "ACTUAL_CPU_CLOCK",
+          "FIXC2": "MAX_CPU_CLOCK",
+          "PMC0": "RETIRED_INSTRUCTIONS",
+          "PMC1": "CPU_CLOCKS_UNHALTED",
+          "PMC2": "RETIRED_SSE_AVX_FLOPS_ALL",
+          "PMC3": "MERGE",
+          "DFC0": "DATA_FROM_LOCAL_DRAM_CHANNEL",
+          "DFC1": "DATA_TO_LOCAL_DRAM_CHANNEL",
+          "PWR0": "RAPL_CORE_ENERGY",
+          "PWR1": "RAPL_PKG_ENERGY"
+        },
+        "metrics": [
+          {
+            "name": "ipc",
+            "calc": "PMC0/PMC1",
+            "type": "hwthread",
+            "publish": true
+          },
+          {
+            "name": "flops_any",
+            "calc": "1E-9*PMC2/time",
+            "unit": "GFlops/s",
+            "type": "hwthread",
+            "publish": true
+          },
+          {
+            "name": "clock",
+            "calc": "1E-6*(FIXC1/FIXC2)/inverseClock",
+            "type": "hwthread",
+            "unit": "MHz",
+            "publish": true
+          },
+          {
+            "name": "pwr_core",
+            "calc": "PWR0/time",
+            "unit": "Watt",
+            "type": "socket",
+            "publish": true
+          },
+          {
+            "name": "pwr_pkg",
+            "calc": "PWR1/time",
+            "type": "socket",
+            "unit": "Watt",
+            "publish": true
+          },
+          {
+            "name": "mem_bw",
+            "calc": "1E-9*(DFC0+DFC1)*64.0/time",
+            "unit": "Gbyte/s",
+            "type": "socket",
+            "publish": true
+          }
+        ]
+      }
+    ],
+    "globalmetrics": []
+  }
+
+}

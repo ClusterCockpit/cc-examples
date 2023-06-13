@@ -1,0 +1,8 @@
+{
+  "sinks": "/etc/cc-metric-collector/sinks.json",
+  "collectors" : "/etc/cc-metric-collector/collectors.json",
+  "receivers" : "/etc/cc-metric-collector/receivers.json",
+  "router" : "/etc/cc-metric-collector/router.json",
+  "interval": "60s",
+  "duration": "10s"
+}

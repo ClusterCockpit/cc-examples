@@ -1,0 +1,164 @@
+{
+    "name": "emmy",
+    "subClusters": [
+        {
+            "name": "main",
+	    "numberOfNode": 560,
+            "processorType": "Intel IvyBridge",
+            "socketsPerNode": 2,
+            "coresPerSocket": 10,
+            "threadsPerCore": 2,
+            "flopRateScalar": 88,
+            "flopRateSimd": 704,
+            "memoryBandwidth": 80,
+            "topology": {
+                "node": [0,20,1,21,2,22,3,23,4,24,5,25,6,26,7,27,8,28,9,29,10,30,11,31,12,32,13,33,14,34,15,35,16,36,17,37,18,38,19,39],
+                "socket": [
+                    [0,20,1,21,2,22,3,23,4,24,5,25,6,26,7,27,8,28,9,29],
+                    [10,30,11,31,12,32,13,33,14,34,15,35,16,36,17,37,18,38,19,39]
+                ],
+                "memoryDomain": [
+                    [0,20,1,21,2,22,3,23,4,24,5,25,6,26,7,27,8,28,9,29],
+                    [10,30,11,31,12,32,13,33,14,34,15,35,16,36,17,37,18,38,19,39]
+                ],
+                "core": [
+                    [0,20],[1,21],[2,22],[3,23],[4,24],[5,25],[6,26],[7,27],[8,28],[9,29],[10,30],[11,31],[12,32],[13,33],[14,34],[15,35],[16,36],[17,37],[18,38],[19,39]
+                ]
+            }
+        }
+    ],
+    "metricConfig": [
+        {
+            "name": "cpu_load",
+            "scope": "node",
+            "unit": "load",
+            "timestep": 60,
+	    "aggregation": null,
+            "peak": 40,
+            "normal": 20,
+            "caution": 15,
+            "alert": 10,
+            "measurement": "data"
+        },
+        {
+            "name": "mem_used",
+            "scope": "node",
+            "unit": "GB",
+            "timestep": 60,
+	    "aggregation": null,
+            "peak": 64,
+            "normal": 20,
+            "caution": 40,
+            "alert": 55,
+            "measurement": "data"
+        },
+        {
+            "name": "flops_any",
+            "scope": "node",
+            "unit": "GF/s",
+            "timestep": 60,
+	    "aggregation": "sum",
+            "peak": 704,
+            "normal": 100,
+            "caution": 20,
+            "alert": 2,
+            "measurement": "data"
+        },
+        {
+            "name": "flops_sp",
+            "scope": "node",
+            "unit": "GF/s",
+            "timestep": 60,
+	    "aggregation": "sum",
+            "peak": 704,
+            "normal": 100,
+            "caution": 20,
+            "alert": 2,
+            "measurement": "data"
+        },
+        {
+            "name": "flops_dp",
+            "scope": "node",
+            "unit": "GF/s",
+            "timestep": 60,
+	    "aggregation": "sum",
+            "peak": 350,
+            "normal": 50,
+            "caution": 10,
+            "alert": 2,
+            "measurement": "data"
+        },
+        {
+            "name": "mem_bw",
+            "scope": "node",
+            "unit": "GB/s",
+            "timestep": 60,
+	    "aggregation": "sum",
+            "peak": 80,
+            "normal": 30,
+            "caution": 10,
+            "alert": 5,
+            "measurement": "data"
+        },
+        {
+            "name": "ipc",
+            "scope": "node",
+            "unit": "IPC",
+            "timestep": 60,
+	    "aggregation": "avg",
+            "peak": 4,
+            "normal": 2,
+            "caution": 1,
+            "alert": 0.5,
+            "measurement": "data"
+        },
+        {
+            "name": "clock",
+            "scope": "node",
+            "unit": "MHz",
+            "timestep": 60,
+	    "aggregation": "avg",
+            "peak": 3000,
+            "normal": 2200,
+            "caution": 1800,
+            "alert": 1200,
+            "measurement": "data"
+        },
+        {
+            "name": "rapl_power",
+            "scope": "node",
+            "unit": "W",
+            "timestep": 60,
+	    "aggregation": "sum",
+            "peak": 160,
+            "normal": 120,
+            "caution": 45,
+            "alert": 10,
+            "measurement": "data"
+        },
+        {
+            "name": "ib_bw",
+            "scope": "node",
+            "unit": "GB/s",
+            "timestep": 60,
+	    "aggregation": null,
+            "peak": 6,
+            "normal": 2,
+            "caution": 1,
+            "alert": 0.5,
+            "measurement": "data"
+        },
+        {
+            "name": "lustre_bw",
+            "scope": "node",
+            "unit": "GB/s",
+            "timestep": 60,
+	    "aggregation": null,
+            "peak": 4,
+            "normal": 2,
+            "caution": 1,
+            "alert": 0.5,
+            "measurement": "data"
+        }
+    ]
+}

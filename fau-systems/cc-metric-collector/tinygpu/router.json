@@ -1,0 +1,60 @@
+{
+    "add_tags" : [
+        {
+            "key" : "cluster",
+            "value" : "tinygpu",
+            "if" : "*"
+        }
+    ],
+    "rename_metrics" : {
+        "load_one" : "cpu_load",
+        "cpu_load_core" : "cpu_load",
+        "net_bytes_in_bw" : "net_bytes_in",
+        "net_bytes_out_bw" : "net_bytes_out",
+        "net_pkts_in_bw" : "net_pkts_in",
+        "net_pkts_out_bw" : "net_pkts_out",
+        "ib_recv_bw" : "ib_recv",
+        "ib_xmit_bw" : "ib_xmit",
+        "ib_recv_pkts_bw": "ib_recv_pkts",
+        "ib_xmit_pkts_bw": "ib_xmit_pkts",
+        "lustre_read_bytes_diff" : "lustre_read_bytes",
+        "lustre_read_requests_diff" : "lustre_read_requests",
+        "lustre_write_bytes_diff" : "lustre_write_bytes",
+        "lustre_write_requests_diff" : "lustre_write_requests",
+        "lustre_open_diff" : "lustre_open",
+        "lustre_close_diff" : "lustre_close",
+        "lustre_setattr_diff" : "lustre_setattr",
+        "lustre_getattr_diff" : "lustre_getattr",
+        "lustre_statfs_diff": "lustre_statfs",
+        "lustre_inode_permission_diff" : "lustre_inode_permission",
+        "nv_util" : "acc_utilization",
+        "nv_fb_mem_used" : "acc_mem_used",
+        "nv_power_usage" : "acc_power",
+        "pwr_pkg": "cpu_power",
+        "pwr_dram": "mem_power"
+    },
+    "drop_metrics" : [
+        "net_bytes_in",
+        "net_bytes_out",
+        "ib_recv",
+        "ib_xmit",
+        "ib_recv_pkts",
+        "ib_xmit_pkts",
+        "net_pkts_in",
+        "net_pkts_out",
+        "lustre_read_bytes",
+        "lustre_read_requests",
+        "lustre_write_bytes",
+        "lustre_write_requests"
+    ],
+    "interval_timestamp" : false,
+    "num_cache_intervals" : 0,
+    "change_unit_prefix": {
+        "mem_used": "G",
+        "swap_used": "G",
+        "mem_total": "G",
+        "swap_total": "G",
+        "cpufreq": "M"
+    },
+    "normalize_metrics" : true
+}
