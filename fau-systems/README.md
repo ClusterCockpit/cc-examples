@@ -15,8 +15,9 @@ NHR@FAU uses the following stack:
 * `cc-metric-collector` as node agent
 * `cc-metric-store` as temporal metric timeseries cache. We use one instance for all clusters.
 * `cc-backend`
-* A homegrown python script running on the management nodes for providing job
-meta data from Slurm
+* A homegrown python script running on the management nodes for providing job meta data from Slurm
+* Builtin sqlite database for job meta and user data (currently 11GB)
+* Job Archive without retention using compressed data.json files (around 700GB)
 
 We also push the metric data to an InfluxDB instance for debugging purposes.
 
